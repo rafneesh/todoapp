@@ -2,6 +2,9 @@
 
 table {
 	border: 1px solid #cc8800;
+	position:absolute;
+	right: 0;
+	top: 82px;
 }
 
 td {
@@ -70,4 +73,9 @@ li a {
 li a:hover {
 	text-decoration: underline;
 	color: red;
+}
+.footer {
+position: fixed;
+bottom: 0;
+
 }
