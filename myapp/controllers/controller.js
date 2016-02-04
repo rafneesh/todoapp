@@ -23,6 +23,18 @@ myApp.controller('taskController', function($scope, TaskServices) {
   	$scope.date='';
     $scope.done='';
   };
+  $scope.Delete = function(title){        
+    var index = -1;   
+    var Arr = eval( $scope.tasks );
+    for( var i = 0; i < Arr.length; i++ ) {
+      if( Arr[i].title === title ) {
+        index = i;
+        break;
+      }
+    }
+    
+    $scope.tasks.splice( index, 1 );    
+  };
   $scope.markDone = function(task){
 
     task.done = true;

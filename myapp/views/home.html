@@ -21,7 +21,7 @@
       </th>
       <th>Time
       </th>
-      </tr>
+    </tr>
     <tr ng-repeat="task in tasks">
       <td>{{task.title}}
       </td>
@@ -31,11 +31,14 @@
       </td>
       <td>{{task.time}}
       </td>
-      <td>
+      <!-- <td> -->
       <td  ng-show="task.done">I am done
       </td>
       <td>
       <button ng-show="!task.done" ng-click='markDone(task)'>Mark as Done</button>
       </td>
-      </tr>
+      <td>
+      <button ng-click='Delete(task.title)'>Delete</button>
+      </td>
+    </tr>
     </table>
