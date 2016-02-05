@@ -1,10 +1,10 @@
 myApp.config(function($stateProvider){
     $stateProvider
         .state('home', {
-            url: "/",
+            url: "",
             views: {
 							  "createTaskView": {
-                    templateUrl: "./myapp/views/createTask.html"
+                    templateUrl: "./myapp/views/addTask.html"
                 },
                 "listTaskView": {
                     templateUrl: "./myapp/views/taskList.html"
