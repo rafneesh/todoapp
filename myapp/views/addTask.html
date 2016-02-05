@@ -1,17 +1,20 @@
 <form name ="taskForm" ng-repeat="form in forms" ng-submit="addRow()" novalidate >
-    Title:<br>
+    Title:<font color='red'>*</font><br>
     <input type="text" name="title" ng-model="form.title" required>
     <div ng-messages="taskForm.title.$error"
     ng-if="taskForm.desc.$dirty">
-      <div ng-message="required">This field is required</div>
+      <div ng-message="required"><font color='red'>This field is required</font></div>
       <div ng-message="text">Input is invalid</div>
     </div>
 
-    <br>Description:<br>
-    <input type="text" name="desc" ng-model="form.desc" required>
+    <br>Description:<font color='red'>*</font><br>
+    <textarea rows="4" cols="50" name="desc" ng-model="form.desc" required>
+    </textarea>
+
+   <!--  <input type="text" name="desc" ng-model="form.desc" required> -->
     <div ng-messages="taskForm.desc.$error"
       ng-if="taskForm.desc.$dirty">
-      <div ng-message="required">This field is required</div>
+      <div ng-message="required"><font color='red'>This field is required</font></div>
       <div ng-message="text">Input is invalid</div>
     </div>
 
