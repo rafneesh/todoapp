@@ -1,4 +1,4 @@
-
+<!--
     <table class="table" >
     <tr>
       <th>Title
@@ -9,7 +9,9 @@
       </th>
       <th>Time
       </th>
-    </tr>
+      <th>Status
+      </th>
+      </tr>
     <tr ng-repeat="task in tasks">
       <td>{{task.title}}
       </td>
@@ -19,14 +21,30 @@
       </td>
       <td>{{task.time}}
       </td>
-      <!-- <td> -->
       <td  ng-show="task.done">I am done
       </td>
-      <td>
-      <button ng-show="!task.done" ng-click='markDone(task)'>Mark as Done</button>
-      </td>
-      <td>
-      <button ng-click='Delete(task.title)'>Delete</button>
+      <td id="button">
+        <button ng-show="!task.done" ng-click='markDone(task)'>Done</button>
       </td>
     </tr>
-    </table>
+    </table> -->
+
+
+<p style="font-size:25px;"><b> Things to do . . . </p><a href="" ng-click='orderByDate()'>   Order By Date </a>
+  <p><a href="" ng-click='orderByDefault()'>   Reset</a></p>
+<div class="numberlist">
+  <ol>
+    <li ng-repeat="task in tasks | orderBy:myOrderBy"><a href="">{{task.title}}</a>
+    <ol>
+        <li><a ="">{{task.desc}}</a></li>
+        <li ng-show="task.date+task.time"><a href="">{{task.date | date:'yyyy-MM-dd'}}</a></li>
+        <li ng-show="task.time"><a href="">{{task.time | date:'HH:mm:ss'}}</a></li>
+        <td id="button">
+          <button ng-show="!task.done" ng-click='markDone(task)'>Mark Done</button>
+        </td>
+        <li class="message"  ng-show="task.done">This is done</li>
+
+    </ol>
+    </li>
+  </ol>
+</div>

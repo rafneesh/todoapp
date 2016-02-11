@@ -22,32 +22,36 @@ myApp.controller('mainController', function($scope,TaskServices) {
             $scope.forms.push({ title: '', desc: '', date: '', desc:''});
   }
 
+  $scope.deleteFields = function () {
+              console.log("deleting");
+            $scope.forms.pop();
+            console.log("deleted");
+  }
+
   $scope.saveTasks = function(form){
 
     console.log('Validation status'+this.taskForm.$valid);
-    console.log('Validation status'+form.title);
+    console.log('Titlw'+this.form.title+" Desc"+this.form+" Date:"+this.form.date+" Time:"+this.form.time);
     if(this.taskForm.$valid){
-    this.tasks.push({ 'title':form.title, 'desc': form.desc, 'date':form.date, 'done':false, 'time':form.time });
-    $scope.title='';
-    $scope.desc='';
-    $scope.date='';
-    $scope.done='';
-  }
-  };
-  $scope.Delete = function(title){        
-    var index = -1;   
-    var Arr = eval( $scope.tasks );
-    for( var i = 0; i < Arr.length; i++ ) {
-      if( Arr[i].title === title ) {
-        index = i;
-        break;
-      }
+    this.tasks.push({ 'title':this.form.title, 'desc': this.form.desc, 'date':this.form.date, 'done':false, 'time':this.form.time });
+    this.form.title='';
+    this.form.desc='';
+    this.form.date='';
+    this.form.time='';
+    this.taskForm.$setPristine();
+    alert("Task Created..");
+    }else{
+    alert("Please enter all the required/valid data");
     }
-    
-    $scope.tasks.splice( index, 1 );    
   };
   $scope.markDone = function(task){
     task.done = true;
+  };
+  $scope.orderByDate = function(){
+    $scope.myOrderBy = 'date';
+  };
+  $scope.orderByDefault = function(){
+    $scope.myOrderBy = '';
   };
 
 
